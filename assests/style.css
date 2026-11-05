@@ -1,0 +1,115 @@
+body {
+  font-family: 'JetBrains Mono', monospace;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  background: url('programming-code-coding-hacker-background-programming-code-icon-made-with-binary-code_127544-815-1.avif') no-repeat center center fixed;
+  background-size: cover;
+  color: white;
+}
+
+section {
+  width: 100%;
+  margin: 40px 0;
+  padding: 40px 0;
+  background: rgba(0, 0, 0, 0.7);
+  position: relative;
+}
+
+section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 5px;
+  height: 100%;
+  background: linear-gradient(to bottom, #00b300, #007acc);
+}
+
+section h2 {
+  color: #00b300;
+  margin-top: 0;
+  padding: 0 40px;
+  font-size: 2rem;
+  position: relative;
+  display: inline-block;
+}
+
+section h2::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 40px;
+  width: 60px;
+  height: 3px;
+  background: #007acc;
+}
+
+.section-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+/* Maintain all other existing CSS from previous version */
+.navbar {
+  background: #007acc;
+  color: #fff;
+  padding: 10px 0;
+}
+
+.navbar ul {
+  display: flex;
+  justify-content: center;
+}
+
+.navbar a {
+  color: #fff;
+  text-decoration: none;
+  padding: 10px 20px;
+  transition: background 0.3s, transform 0.3s;
+}
+
+.navbar a:hover {
+  background: #005f99;
+  transform: scale(1.05);
+}
+
+header {
+  background: rgba(13, 17, 23, 0.85);
+  padding: 40px;
+  text-align: center;
+}
+
+header h1 {
+  margin: 0;
+}
+
+.skill-set {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.skill {
+  flex: 1;
+  min-width: 200px;
+  margin: 10px;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+.skill:hover {
+  transform: translateY(-5px);
+  background: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+footer {
+  background: rgba(13, 17, 23, 0.85);
+  text-align: center;
+  padding: 20px;
+  width: 100%;
+}
