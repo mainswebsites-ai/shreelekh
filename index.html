@@ -1,0 +1,1928 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Shreelekh Ingle | Developer Portfolio</title>
+   <!-- Favicon -->
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    /* General Styles */
+    body, html {
+      height: 100%;
+      margin: 0;
+      font-family: 'Roboto Mono', monospace;
+      background:
+        linear-gradient(rgba(3, 8, 22, 0.38), rgba(3, 8, 22, 0.52)),
+        url("background.jpg") center center / cover fixed no-repeat,
+        #070b12;
+      background-attachment: fixed;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      color: #90ee90;
+      overflow-x: hidden;
+      transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for dark mode */
+    }
+    body.light-mode {
+      background:
+        linear-gradient(rgba(245, 248, 255, 0.72), rgba(245, 248, 255, 0.78)),
+        url("background.jpg") center center / cover fixed no-repeat,
+        #f8fafc;
+      background-attachment: fixed;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      color: #333;
+    }
+    body.light-mode section {
+      background-color: #fff;
+      color: #333;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+    body.light-mode #about h2, body.light-mode #about h3 { color: #e6b800; }
+    body.light-mode #skills h2 { color: #0099cc; }
+    body.light-mode #testimonials h2 { color: #cc3366; }
+    body.light-mode #projects h2 { color: #33cc33; }
+    body.light-mode #games h2 { color: #cc6600; }
+    body.light-mode #blog h2, body.light-mode #hobbies h2, body.light-mode #achievements h2, body.light-mode #contact h2 { color: #9933cc; }
+    body.light-mode footer {
+      background: rgba(255, 255, 255, 0.9);
+      color: #333;
+    }
+    body.light-mode .social-links a {
+      color: #333;
+    }
+    body.light-mode .social-links a:hover {
+      color: #666;
+    }
+    body.light-mode #games {
+      background: #f8f8f8;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+    body.light-mode .game-tab {
+      background: #e0e0e0;
+      color: #555;
+    }
+    body.light-mode .game-tab.active,
+    body.light-mode .game-tab:hover {
+      background: #059669;
+      color: white;
+      box-shadow: 0 0 12px rgba(5, 150, 105, 0.5);
+    }
+    body.light-mode .game-content {
+      background: #f0f0f0;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+    body.light-mode #snake-game canvas {
+      background: #eee;
+      border-color: #047857;
+    }
+    body.light-mode #snake-game button,
+    body.light-mode #rps-game button,
+    body.light-mode #memory-game button {
+      background: #047857;
+    }
+    body.light-mode #snake-game button:hover,
+    body.light-mode #rps-game button:hover,
+    body.light-mode #memory-game button:hover {
+      background: #035c43;
+    }
+    body.light-mode #rpsResult {
+      color: #059669;
+    }
+    body.light-mode #memory-game .card {
+      background-color: #e0e0e0;
+      color: #555;
+      box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+    }
+    body.light-mode #memory-game .card.flipped {
+      background-color: #059669;
+      color: white;
+      box-shadow: 0 0 12px rgba(5, 150, 105, 0.5);
+    }
+    /* Dark Mode Toggle Button */
+    #darkModeToggle {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: #333;
+      color: #90ee90;
+      border: none;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      font-size: 20px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      z-index: 1001;
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+    body.light-mode #darkModeToggle {
+      background: #eee;
+      color: #333;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+    #darkModeToggle:hover {
+      opacity: 0.8;
+    }
+
+    /* Section Styles */
+    section {
+      background-color: #000; /* Black background */
+      color: #ffffff; /* White text for contrast */
+      padding: 20px;
+      border-radius: 8px;
+      margin: 20px 20px; /* Adjusted margin for removed nav */
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+    /* Heading Colors */
+    #about h2, #about h3 {
+      color: #ffcc00; /* Yellow for About Me section */
+    }
+    #skills h2 {
+      color: #00ccff; /* Light Blue for Skills section */
+    }
+    #testimonials h2 {
+      color: #ff6699; /* Pink for Testimonials section */
+    }
+    #projects h2 {
+      color: #66ff66; /* Light Green for Projects section */
+    }
+    #games h2 {
+      color: #ff9933; /* Orange for Games section */
+    }
+    #blog h2, #hobbies h2, #achievements h2, #contact h2 {
+      color: #cc66ff; /* Purple for Blog, Hobbies, Achievements, and Contact sections */
+    }
+    /* Header Styles */
+    header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    /* Game Section Styles */
+    #games {
+      padding: 48px 24px;
+      background: #111827; /* Dark background for games */
+      color: #e0e0e0;
+      border-radius: 16px;
+      margin: 48px auto;
+      max-width: 900px;
+      box-shadow: 0 10px 30px rgba(0, 150, 90, 0.2);
+    }
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      section {
+        margin: 20px 10px; /* Adjust section margins for smaller screens */
+        padding: 15px; /* Smaller padding */
+      }
+      #games {
+        padding: 24px 12px; /* Smaller padding for games section */
+        margin: 24px auto; /* Adjust margin */
+      }
+      .game-tab {
+        font-size: 0.9rem;
+        padding: 10px 20px;
+        min-width: unset; /* Remove min-width for smaller buttons */
+        flex-grow: 1; /* Allow buttons to grow and fill space */
+      }
+      .game-tabs {
+        flex-direction: column; /* Stack game tabs vertically */
+        gap: 8px; /* Smaller gap */
+      }
+      #snake-game canvas {
+        width: 100%; /* Make canvas responsive */
+        height: auto; /* Maintain aspect ratio */
+      }
+      #rps-game button {
+        padding: 10px 20px; /* Smaller padding for RPS buttons */
+        margin: 5px; /* Adjust margin */
+        font-size: 1rem; /* Smaller font size */
+        min-width: unset; /* Remove min-width */
+      }
+      #memory-game #memoryBoard {
+        grid-template-columns: repeat(auto-fit, minmax(60px, 1fr)); /* Adjust grid for memory game */
+        grid-gap: 8px; /* Smaller gap */
+      }
+      #memory-game .card {
+        width: 60px; /* Smaller card size */
+        height: 60px; /* Smaller card size */
+        font-size: 24px; /* Smaller font size for cards */
+      }
+      .certificate-gallery {
+        gap: 8px; /* Smaller gap for certificates */
+      }
+      .certificate-gallery img {
+        max-width: 100px; /* Smaller image size for certificates */
+      }
+      .social-links {
+        top: 10px; /* Adjust position */
+        right: 10px; /* Adjust position */
+        flex-direction: column; /* Stack social links */
+      }
+      .social-links a {
+        margin: 5px 0; /* Adjust margin */
+      }
+      #darkModeToggle {
+        top: 10px;
+        right: 10px;
+        width: 35px;
+        height: 35px;
+        font-size: 18px;
+      }
+      .project-filters button {
+        font-size: 0.8rem;
+        padding: 6px 10px;
+      }
+      .project-item {
+        padding: 10px;
+      }
+      .testimonial-carousel {
+        padding: 10px;
+      }
+      .testimonial-slide p {
+        font-size: 1rem;
+      }
+      .carousel-nav-btn {
+        width: 30px;
+        height: 30px;
+        font-size: 1.2rem;
+      }
+      #scroll-to-top {
+        bottom: 15px;
+        right: 15px;
+        width: 40px;
+        height: 40px;
+        font-size: 18px;
+      }
+    }
+    /* Make all images responsive */
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+    /* Footer Styles */
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: rgba(0, 0, 0, 0.7);
+      color: #90ee90;
+      position: relative;
+      bottom: 0;
+      width: 100%;
+    }
+    /* Achievements Section Styles */
+    .certificate-gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 16px;
+      margin-top: 16px;
+    }
+    .certificate-gallery img {
+      max-width: 150px;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+    /* Games Section Styles */
+    .game-tabs {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      margin-bottom: 32px;
+      flex-wrap: wrap;
+    }
+    .game-tab {
+      background: #374151;
+      border: none;
+      color: #d1d5db;
+      padding: 12px 28px;
+      border-radius: 12px;
+      font-size: 1.125rem;
+      font-weight: 600;
+      cursor: pointer;
+      user-select: none;
+      transition: background-color 0.3s ease;
+      min-width: 140px;
+      text-align: center;
+    }
+    .game-tab.active,
+    .game-tab:hover {
+      background: #059669; /* green accent */
+      color: white;
+      box-shadow: 0 0 12px #059669;
+    }
+    .game-content {
+      display: none;
+      max-width: 100%;
+      margin: 0 auto;
+      background: #1f2937;
+      padding: 24px;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0, 150, 90, 0.2);
+    }
+    .game-content.active {
+      display: block;
+    }
+    /* Snake Game Styles */
+    #snake-game canvas {
+      display: block;
+      margin: 0 auto 16px;
+      background: #111;
+      border-radius: 12px;
+      border: 3px solid #059669;
+    }
+    #snake-game button {
+      background: #059669;
+      border: none;
+      padding: 10px 24px;
+      border-radius: 12px;
+      color: white;
+      font-weight: 700;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: background-color 0.3s ease;
+      display: block;
+      margin: 0 auto;
+    }
+    #snake-game button:hover {
+      background: #047857;
+    }
+    /* Rock Paper Scissors Styles */
+    #rps-game button {
+      background: #059669;
+      border: none;
+      padding: 14px 28px;
+      margin: 0 12px;
+      border-radius: 14px;
+      color: white;
+      font-weight: 700;
+      cursor: pointer;
+      font-size: 1.125rem;
+      transition: background-color 0.3s ease;
+      min-width: 120px;
+    }
+    #rps-game button:hover {
+      background: #047857;
+    }
+    #rpsResult {
+      margin-top: 24px;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #a7f3d0;
+      min-height: 1.5em;
+      text-align: center;
+    }
+    /* Memory Game Styles */
+    #memory-game #memoryBoard {
+      display: grid;
+      grid-template-columns: repeat(4, 80px);
+      grid-gap: 12px;
+      justify-content: center;
+      margin-bottom: 16px;
+    }
+    #memory-game .card {
+      width: 80px;
+      height: 80px;
+      background-color: #374151;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 32px;
+      color: #d1d5db;
+      border-radius: 12px;
+      cursor: pointer;
+      user-select: none;
+      box-shadow: inset 0 0 5px #000;
+      transition: background-color 0.3s ease;
+    }
+    #memory-game .card.flipped {
+      background-color: #059669;
+      color: #e0e0e0;
+      cursor: default;
+      box-shadow: 0 0 12px #059669;
+    }
+    #memory-game button {
+      background: #059669;
+      border: none;
+      padding: 10px 28px;
+      border-radius: 12px;
+      color: white;
+      font-weight: 700;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: background-color 0.3s ease;
+      display: block;
+      margin: 0 auto;
+    }
+    #memory-game button:hover {
+      background: #047857;
+    }
+
+    /* New Game Styles */
+    #guess-the-number-game input[type="number"] {
+      padding: 10px;
+      border-radius: 8px;
+      border: 1px solid #374151;
+      background-color: #1f2937;
+      color: #e0e0e0;
+      margin-right: 10px;
+      width: 80px;
+      text-align: center;
+    }
+    #guess-the-number-game button,
+    #tic-tac-toe-game button,
+    #coin-flip-game button {
+      background: #059669;
+      border: none;
+      padding: 10px 24px;
+      border-radius: 12px;
+      color: white;
+      font-weight: 700;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: background-color 0.3s ease;
+      margin-top: 10px;
+    }
+    #guess-the-number-game button:hover,
+    #tic-tac-toe-game button:hover,
+    #coin-flip-game button:hover {
+      background: #047857;
+    }
+    #guessResult, #ticTacToeResult, #coinFlipResult {
+      margin-top: 15px;
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #a7f3d0;
+      text-align: center;
+    }
+
+    #tic-tac-toe-game #ticTacToeBoard {
+      display: grid;
+      grid-template-columns: repeat(3, 100px);
+      grid-template-rows: repeat(3, 100px);
+      gap: 5px;
+      width: 315px; /* 3*100 + 2*5 */
+      margin: 20px auto;
+      background-color: #374151;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    #tic-tac-toe-game .cell {
+      width: 100px;
+      height: 100px;
+      background-color: #1f2937;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 3em;
+      font-weight: bold;
+      cursor: pointer;
+      user-select: none;
+      color: #e0e0e0;
+      transition: background-color 0.2s ease;
+    }
+    #tic-tac-toe-game .cell:hover {
+      background-color: #2d3a4b;
+    }
+    #tic-tac-toe-game .cell.x { color: #ff6666; } /* Red for X */
+    #tic-tac-toe-game .cell.o { color: #00ccff; } /* Blue for O */
+
+    #coin-flip-game #coin {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background-color: #ffd700; /* Gold color for coin */
+      margin: 20px auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 2em;
+      font-weight: bold;
+      color: #333;
+      border: 5px solid #ccac00;
+      box-shadow: 0 0 15px rgba(255, 215, 0, 0.7);
+      transition: transform 0.5s ease-out;
+    }
+    #coin-flip-game #coin.flipping {
+      animation: flipCoin 0.5s ease-out forwards;
+    }
+
+    @keyframes flipCoin {
+      0% { transform: rotateY(0deg); }
+      100% { transform: rotateY(360deg); }
+    }
+
+
+    /* Social Links Positioning */
+    .social-links {
+      position: fixed;
+      top: 20px; /* Adjusted position */
+      right: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      z-index: 999;
+    }
+    .social-links a {
+      color: #90ee90;
+      font-size: 24px;
+      transition: color 0.3s ease;
+    }
+    .social-links a:hover {
+      color: #fff;
+    }
+
+    /* Project Filtering Styles */
+    .project-filters {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .project-filters button {
+      background: #374151;
+      border: none;
+      color: #d1d5db;
+      padding: 8px 15px;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      cursor: pointer;
+      margin: 5px;
+      transition: background-color 0.3s ease;
+    }
+    .project-filters button.active,
+    .project-filters button:hover {
+      background: #059669;
+      color: white;
+    }
+    .project-item {
+      display: none; /* Hidden by default */
+      background-color: #1f2937;
+      padding: 15px;
+      border-radius: 8px;
+      margin-bottom: 15px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      cursor: pointer; /* Indicate clickable */
+    }
+    .project-item.show {
+      display: block; /* Show when active */
+    }
+    .project-item h3 {
+      color: #66ff66;
+      margin-top: 0;
+    }
+    .project-item p {
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+    .project-item a {
+      color: #00ccff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .project-item a:hover {
+      text-decoration: underline;
+    }
+
+    /* Testimonial Carousel Styles */
+    .testimonial-carousel {
+      position: relative;
+      max-width: 700px;
+      margin: 0 auto;
+      overflow: hidden;
+      border-radius: 8px;
+      background-color: #1f2937;
+      padding: 20px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+    .testimonial-wrapper {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+    }
+    .testimonial-slide {
+      min-width: 100%;
+      box-sizing: border-box;
+      text-align: center;
+      padding: 10px;
+    }
+    .testimonial-slide blockquote {
+      margin: 0;
+      padding: 0;
+    }
+    .testimonial-slide p {
+      font-style: italic;
+      font-size: 1.1rem;
+      margin-bottom: 10px;
+    }
+    .testimonial-slide footer {
+      font-weight: bold;
+      color: #a7f3d0;
+    }
+    .carousel-nav-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0, 0, 0, 0.5);
+      color: white;
+      border: none;
+      padding: 10px;
+      cursor: pointer;
+      font-size: 1.5rem;
+      z-index: 10;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .carousel-nav-btn:hover {
+      background: rgba(0, 0, 0, 0.8);
+    }
+    .prev-btn { left: 10px; }
+    .next-btn { right: 10px; }
+
+    /* Skill Bar Styles */
+    .skill-bar-container {
+      background-color: #374151;
+      border-radius: 5px;
+      margin-bottom: 15px;
+      height: 20px;
+      overflow: hidden;
+    }
+    .skill-bar {
+      height: 100%;
+      background-color: #059669;
+      width: 0%; /* Initial width for animation */
+      border-radius: 5px;
+      text-align: right;
+      color: white;
+      font-size: 0.8rem;
+      line-height: 20px;
+      padding-right: 5px;
+      box-sizing: border-box;
+      transition: width 1s ease-out; /* Animation */
+    }
+    .skill-item {
+      margin-bottom: 10px;
+    }
+    .skill-item h3 {
+      margin-bottom: 5px;
+      color: #a7f3d0;
+    }
+
+    /* Contact Form Styles */
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .contact-form label {
+      font-weight: bold;
+      margin-bottom: 5px;
+      display: block;
+    }
+    .contact-form input[type="text"],
+    .contact-form input[type="email"],
+    .contact-form textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #374151;
+      border-radius: 5px;
+      background-color: #1f2937;
+      color: #e0e0e0;
+      box-sizing: border-box; /* Include padding in width */
+    }
+    .contact-form input[type="text"]:focus,
+    .contact-form input[type="email"]:focus,
+    .contact-form textarea:focus {
+      outline: none;
+      border-color: #059669;
+      box-shadow: 0 0 5px rgba(5, 150, 105, 0.5);
+    }
+    .contact-form textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+    .contact-form button[type="submit"] {
+      background: #059669;
+      border: none;
+      padding: 12px 25px;
+      border-radius: 8px;
+      color: white;
+      font-weight: 700;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: background-color 0.3s ease;
+      align-self: flex-start; /* Align button to the left */
+    }
+    .contact-form button[type="submit"]:hover {
+      background: #047857;
+    }
+    .contact-form .error-message {
+      color: #ff6666;
+      font-size: 0.9rem;
+      margin-top: -10px;
+      margin-bottom: 10px;
+    }
+
+    /* Scroll to Top Button */
+    #scroll-to-top {
+      display: none; /* Hidden by default */
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #059669;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      font-size: 24px;
+      cursor: pointer;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+      z-index: 1000;
+      transition: background-color 0.3s ease, opacity 0.3s ease;
+    }
+    #scroll-to-top:hover {
+      background-color: #047857;
+      opacity: 0.9;
+    }
+
+    /* Project Modal Styles */
+    .modal {
+      display: none; /* Hidden by default */
+      position: fixed; /* Stay in place */
+      z-index: 1002; /* Sit on top */
+      left: 0;
+      top: 0;
+      width: 100%; /* Full width */
+      height: 100%; /* Full height */
+      overflow: auto; /* Enable scroll if needed */
+      background-color: rgba(0,0,0,0.8); /* Black w/ opacity */
+      justify-content: center;
+      align-items: center;
+    }
+    .modal-content {
+      background-color: #1f2937;
+      margin: auto;
+      padding: 30px;
+      border-radius: 10px;
+      width: 80%;
+      max-width: 700px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+      position: relative;
+      color: #e0e0e0;
+      animation: fadeIn 0.3s;
+    }
+    .modal-content h3 {
+      color: #66ff66;
+      margin-top: 0;
+      margin-bottom: 15px;
+    }
+    .modal-content p {
+      margin-bottom: 10px;
+      line-height: 1.6;
+    }
+    .modal-content .modal-links a {
+      color: #00ccff;
+      text-decoration: none;
+      font-weight: bold;
+      margin-right: 15px;
+    }
+    .modal-content .modal-links a:hover {
+      text-decoration: underline;
+    }
+    .close-button {
+      color: #aaa;
+      position: absolute;
+      top: 10px;
+      right: 20px;
+      font-size: 28px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .close-button:hover,
+    .close-button:focus {
+      color: #fff;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <button id="darkModeToggle" aria-label="Toggle dark/light mode">
+    <i class="fas fa-moon"></i>
+  </button>
+
+  <div class="social-links" aria-label="Social media links">
+    <a href="https://github.com/shreelekh" target="_blank" aria-label="GitHub profile">
+      <i class="fab fa-github"></i>
+    </a>
+    <a href="mailto:shreelekhingle5@gmail.com" aria-label="Email">
+      <i class="fas fa-envelope"></i>
+    </a>
+    <a href="https://www.instagram.com/shreelekh.py" target="_blank" aria-label="Instagram profile">
+      <i class="fab fa-instagram"></i>
+    </a>
+  </div>
+
+  <main role="main">
+    <header>
+      <h1>Shreelekh Ingle</h1>
+      <p>14-year-old Developer • Future Engineer • Tech Explorer</p>
+      <div class="header-media">
+        <img src="shreelekh-horse.jpg" alt="Shreelekh riding a horse" />
+      </div>
+    </header>
+
+    <section id="about" class="about-section">
+      <h2>About Me</h2>
+      <p>Hello! I'm <strong>Shreelekh Ingle</strong>, a passionate 14-year-old tech enthusiast and self-taught developer based in Nagpur, Maharashtra, India.</p>
+      <p>Ever since I typed my first line of code, I’ve been hooked on the creative power of programming. From building calculators and weather apps to experimenting with AI and robotics, I love solving real-world problems with code.</p>
+      <p>I’m currently a student at St. Xavier High School, where I balance school with deep dives into HTML, CSS, JavaScript, and beyond. I spend my free time participating in coding challenges, exploring new frameworks, and watching tutorials to constantly level up.</p>
+      <p>Currently, I'm deeply engrossed in developing a secure chat application using Node.js and Firebase, and I'm also exploring machine learning concepts to build a simple image recognition model. My goal is to continuously push the boundaries of my knowledge and apply what I learn to create impactful solutions.</p>
+      <h3>💡 My Passion</h3>
+      <p>Technology is more than a skill—it's my language. I believe in creating smart, meaningful tools that make people’s lives easier, more fun, or more inspiring.</p>
+      <h3>🚀 Goals</h3>
+      <p>My dream is to become a top software engineer, contribute to open-source projects, and eventually launch my own tech company.</p>
+      <h3>🌐 Tech Stack & Learning</h3>
+      <ul>
+        <li>Frontend: HTML5, CSS3, JavaScript, Tailwind, Bootstrap</li>
+        <li>Backend: Node.js (learning), Firebase, APIs</li>
+        <li>Tools: GitHub, VS Code, Figma</li>
+        <li>Exploring: Python, React, AI tools, Game engines</li>
+      </ul>
+    </section>
+
+    <section id="skills" class="skills-section">
+      <h2>Skills</h2>
+      <div class="skill-set">
+        <div class="skill-item">
+          <h3>JavaScript</h3>
+          <div class="skill-bar-container">
+            <div class="skill-bar" data-level="90">90%</div>
+          </div>
+        </div>
+        <div class="skill-item">
+          <h3>Python</h3>
+          <div class="skill-bar-container">
+            <div class="skill-bar" data-level="80">80%</div>
+          </div>
+        </div>
+        <div class="skill-item">
+          <h3>HTML/CSS</h3>
+          <div class="skill-bar-container">
+            <div class="skill-bar" data-level="95">95%</div>
+          </div>
+        </div>
+        <div class="skill-item">
+          <h3>React</h3>
+          <div class="skill-bar-container">
+            <div class="skill-bar" data-level="70">70%</div>
+          </div>
+        </div>
+        <div class="skill-item">
+          <h3>Node.js</h3>
+          <div class="skill-bar-container">
+            <div class="skill-bar" data-level="60">60%</div>
+          </div>
+        </div>
+        <div class="skill-item">
+          <h3>Git/GitHub</h3>
+          <div class="skill-bar-container">
+            <div class="skill-bar" data-level="85">85%</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="projects-section">
+      <h2>Projects</h2>
+      <div class="project-filters">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="web">Web Development</button>
+        <button class="filter-btn" data-filter="ai">AI/ML</button>
+        <button class="filter-btn" data-filter="game">Games</button>
+      </div>
+      <div class="project-list">
+        <div class="project-item show" data-category="web" data-project-id="chat-app">
+          <h3>Secure Chat Application</h3>
+          <p>A real-time chat application built with Node.js, Express, and Firebase for secure messaging.</p>
+          <a href="#" target="_blank">View Project</a>
+        </div>
+        <div class="project-item show" data-category="ai" data-project-id="image-recognition">
+          <h3>Simple Image Recognition Model</h3>
+          <p>An introductory machine learning project using Python and TensorFlow to classify images.</p>
+          <a href="#" target="_blank">View Project</a>
+        </div>
+        <div class="project-item show" data-category="web" data-project-id="weather-dashboard">
+          <h3>Weather Dashboard</h3>
+          <p>A web application that fetches and displays current weather data using a public API.</p>
+          <a href="#" target="_blank">View Project</a>
+        </div>
+        <div class="project-item show" data-category="game" data-project-id="snake-game">
+          <h3>Snake Game (JavaScript)</h3>
+          <p>A classic Snake game implemented purely with HTML Canvas and JavaScript.</p>
+          <a href="#games" target="_blank">Play Game</a>
+        </div>
+        <div class="project-item show" data-category="game" data-project-id="memory-game">
+          <h3>Memory Game (JavaScript)</h3>
+          <p>A card-matching memory game to test your concentration skills.</p>
+          <a href="#games" target="_blank">Play Game</a>
+        </div>
+        <div class="project-item show" data-category="game" data-project-id="guess-the-number-game">
+          <h3>Guess the Number Game (JavaScript)</h3>
+          <p>A simple number guessing game where you try to guess a random number.</p>
+          <a href="#games" target="_blank">Play Game</a>
+        </div>
+        <div class="project-item show" data-category="game" data-project-id="tic-tac-toe-game">
+          <h3>Tic-Tac-Toe Game (JavaScript)</h3>
+          <p>A classic Tic-Tac-Toe game for two players.</p>
+          <a href="#games" target="_blank">Play Game</a>
+        </div>
+        <div class="project-item show" data-category="game" data-project-id="coin-flip-game">
+          <h3>Coin Flip Game (JavaScript)</h3>
+          <p>A simple coin flip game to test your luck.</p>
+          <a href="#games" target="_blank">Play Game</a>
+        </div>
+        <div class="project-item show" data-category="web" data-project-id="portfolio-website">
+          <h3>Portfolio Website (This one!)</h3>
+          <p>My personal developer portfolio showcasing my skills, projects, and achievements.</p>
+          <a href="#" target="_blank">View Code</a>
+        </div>
+      </div>
+
+      <section id="games" class="games-section" aria-label="Interactive Games Section">
+      <h2>Let's Play Game</h2>
+      <div class="game-tabs" role="tablist" aria-label="Game Tabs">
+        <button class="game-tab active" role="tab" aria-selected="true" aria-controls="snake-game" id="tab-snake">Snake Game</button>
+        <button class="game-tab" role="tab" aria-selected="false" aria-controls="rps-game" id="tab-rps">Rock Paper Scissors</button>
+        <button class="game-tab" role="tab" aria-selected="false" aria-controls="memory-game" id="tab-memory">Memory Game</button>
+        <button class="game-tab" role="tab" aria-selected="false" aria-controls="guess-the-number-game" id="tab-guess-the-number">Guess the Number</button>
+        <button class="game-tab" role="tab" aria-selected="false" aria-controls="tic-tac-toe-game" id="tab-tic-tac-toe">Tic-Tac-Toe</button>
+        <button class="game-tab" role="tab" aria-selected="false" aria-controls="coin-flip-game" id="tab-coin-flip">Coin Flip</button>
+      </div>
+
+      <section id="snake-game" class="game-content active" role="tabpanel" aria-labelledby="tab-snake" tabindex="0">
+        <h3>Snake Game</h3>
+        <canvas id="snakeCanvas" width="400" height="400" aria-label="Snake game canvas"></canvas>
+        <button id="snakeReset" type="button" aria-label="Reset Snake Game">Reset Game</button>
+      </section>
+
+      <section id="rps-game" class="game-content" role="tabpanel" aria-labelledby="tab-rps" tabindex="0">
+        <h3>Rock Paper Scissors</h3>
+        <div style="text-align:center;">
+          <button type="button" data-choice="rock">Rock</button>
+          <button type="button" data-choice="paper">Paper</button>
+          <button type="button" data-choice="scissors">Scissors</button>
+        </div>
+        <h2 id="rpsResult" aria-live="polite"></h2>
+      </section>
+
+      <section id="memory-game" class="game-content" role="tabpanel" aria-labelledby="tab-memory" tabindex="0">
+        <h3>Memory Game</h3>
+        <div id="memoryBoard" aria-label="Memory game cards grid"></div>
+        <button id="memoryReset" type="button" aria-label="Reset Memory Game">Reset Game</button>
+      </section>
+
+      <!-- New Game: Guess the Number -->
+      <section id="guess-the-number-game" class="game-content" role="tabpanel" aria-labelledby="tab-guess-the-number" tabindex="0">
+        <h3>Guess the Number</h3>
+        <p>Guess a number between 1 and 100:</p>
+        <input type="number" id="guessInput" min="1" max="100" placeholder="Enter your guess">
+        <button id="submitGuess">Submit Guess</button>
+        <p id="guessResult"></p>
+        <button id="resetGuessGame" style="display: none;">Play Again</button>
+      </section>
+
+      <!-- New Game: Tic-Tac-Toe -->
+      <section id="tic-tac-toe-game" class="game-content" role="tabpanel" aria-labelledby="tab-tic-tac-toe" tabindex="0">
+        <h3>Tic-Tac-Toe</h3>
+        <div id="ticTacToeBoard">
+          <div class="cell" data-cell-index="0"></div>
+          <div class="cell" data-cell-index="1"></div>
+          <div class="cell" data-cell-index="2"></div>
+          <div class="cell" data-cell-index="3"></div>
+          <div class="cell" data-cell-index="4"></div>
+          <div class="cell" data-cell-index="5"></div>
+          <div class="cell" data-cell-index="6"></div>
+          <div class="cell" data-cell-index="7"></div>
+          <div class="cell" data-cell-index="8"></div>
+        </div>
+        <p id="ticTacToeResult" style="text-align: center;"></p>
+        <button id="resetTicTacToeGame" style="display: block; margin: 15px auto;">Reset Game</button>
+      </section>
+
+      <!-- New Game: Coin Flip -->
+      <section id="coin-flip-game" class="game-content" role="tabpanel" aria-labelledby="tab-coin-flip" tabindex="0">
+        <h3>Coin Flip</h3>
+        <div style="text-align: center;">
+          <div id="coin"></div>
+          <button id="flipCoinBtn">Flip Coin</button>
+          <p id="coinFlipResult"></p>
+          <p>Wins: <span id="coinWins">0</span> | Losses: <span id="coinLosses">0</span></p>
+          <button id="resetCoinFlipGame">Reset Score</button>
+        </div>
+      </section>
+
+    </section>
+
+      </ul>
+    </section>
+
+    <section id="achievements" class="achievements-section">
+      <h2>Achievements</h2>
+      <ul>
+        <li>1st Place in State-Level Coding Competition (2023)</li>
+        <li>Completed Python for Everybody Specialization (Coursera)</li>
+        <li>Participated in Hackathon 2023 - Team Lead</li>
+      </ul>
+      <h3>Certificates</h3>
+      <div class="certificate-gallery">
+        <img src="1.jpg" alt="Certificate 1" />
+        <img src="2.jpg" alt="Certificate 2" />
+        <img src="3.jpg" alt="Certificate 3" />
+        <img src="5.jpg" alt="Certificate 5" />
+        <img src="6.jpg" alt="Certificate 6" />
+        <img src="8.jpg" alt="Certificate 8" />
+        <img src="9.jpg" alt="Certificate 9" />
+      </div>
+    </section>
+
+    <section id="testimonials" class="testimonials-section">
+      <h2>Testimonials</h2>
+      <div class="testimonial-carousel">
+        <div class="testimonial-wrapper">
+          <div class="testimonial-slide">
+            <blockquote>
+              <p>"Shreelekh is a dedicated and talented young developer. His passion for technology is inspiring!"</p>
+              <footer>- Abhas Shivankar</footer>
+            </blockquote>
+          </div>
+          <div class="testimonial-slide">
+            <blockquote>
+              <p>"I had the pleasure of working with Shreelekh on a project, and his skills are impressive for his age!"</p>
+              <footer>- Lakshyu Pairage</footer>
+            </blockquote>
+          </div>
+          <div class="testimonial-slide">
+            <blockquote>
+              <p>"A true prodigy! Shreelekh's problem-solving abilities are far beyond his years."</p>
+              <footer>- Sanshrutya Kalaskar</footer>
+            </blockquote>
+          </div>
+        </div>
+        <button class="carousel-nav-btn prev-btn" aria-label="Previous testimonial"><i class="fas fa-chevron-left"></i></button>
+        <button class="carousel-nav-btn next-btn" aria-label="Next testimonial"><i class="fas fa-chevron-right"></i></button>
+      </div>
+    </section>
+
+    <section id="blog" class="blog-section">
+      <h2>Blog</h2>
+      <article>
+        <h3>My Journey into Coding</h3>
+        <p>In this post, I share how I got started with coding and the resources that helped me along the way...</p>
+        <a href="#">Read more</a>
+      </article>
+      <article>
+        <h3>Exploring AI Tools</h3>
+        <p>AI is transforming the tech landscape. Here are some tools I've been experimenting with...</p>
+        <a href="#">Read more</a>
+      </article>
+    </section>
+
+    <section id="hobbies" class="hobbies-section">
+      <h2>Hobbies</h2>
+      <p>When I'm not coding, I enjoy:</p>
+      <ul>
+        <li>Riding horses</li>
+        <li>Playing video games</li>
+        <li>Reading science fiction novels</li>
+        <li>Exploring nature</li>
+      </ul>
+    </section>
+<section id="gta5-game" class="gta5-section" aria-label="Play GTA 5">
+  <style>
+    #gta5-game { background: #101014; color: #fff; text-align: center; padding: 28px 20px; border: 2px solid #a78bfa; }
+    #gta5-game h2 { color: #b794ff; margin-top: 0; font-size: clamp(1.6rem, 4vw, 2.5rem); }
+    #gta5-game p { line-height: 1.6; }
+    #gta5-game .gta5-preview { display: block; width: 100%; max-width: 1100px; margin: 22px auto; border: 3px solid #eee; box-shadow: 8px 8px 0 #a78bfa; }
+    #gta5-game .gta5-play-link { display: inline-block; margin: 12px 8px; padding: 14px 26px; border: 3px solid #fff; background: #ffca1a; color: #111; font-weight: 800; text-decoration: none; font-size: 1.05rem; box-shadow: 5px 5px 0 #eee; }
+    #gta5-game .gta5-play-link:hover { background: #f5b900; transform: translateY(-2px); }
+    #gta5-game .gta5-note { color: #ddd; font-size: .95rem; }
+  </style>
+  <h2><i class="fas fa-gamepad" aria-hidden="true"></i> Play GTA 5</h2>
+  <p>Michael, Franklin and Trevor in Los Santos. Click below to launch the game.</p>
+  <a href="https://wasmarcade.com/gta-5" target="_blank" rel="noopener noreferrer" aria-label="Open GTA 5 in a new tab">
+    <img class="gta5-preview" src="gta5-preview.png" alt="GTA 5 game preview with Play GTA V button and game artwork" loading="lazy">
+  </a>
+  <a class="gta5-play-link" href="https://wasmarcade.com/gta-5" target="_blank" rel="noopener noreferrer"><i class="fas fa-play" aria-hidden="true"></i> PLAY GTA V</a>
+  <p class="gta5-note">If the game does not open here, it will launch in a new tab. The game is hosted by WASM Arcade.</p>
+</section>
+
+
+<style>
+/* Instagram Reels section */
+.insta-section{padding:70px 6%;background:linear-gradient(180deg,#101014,#17131b);color:#fff}
+.insta-wrap{max-width:1100px;margin:auto}
+.insta-heading{text-align:center;margin:0 0 28px;font-size:clamp(28px,4vw,42px)}
+.insta-profile{display:flex;align-items:center;gap:16px;max-width:650px;margin:0 auto 30px;padding:18px;border:1px solid #ffffff20;border-radius:18px;background:#ffffff08}
+.insta-avatar{width:76px;height:76px;flex:0 0 76px;border-radius:50%;padding:3px;background:linear-gradient(45deg,#ffcc44,#ff3366,#a335ff)}
+.insta-avatar span{display:flex;width:100%;height:100%;align-items:center;justify-content:center;border-radius:50%;background:#19151f;font-size:27px;font-weight:800}
+.insta-user{font-size:20px;font-weight:750}.insta-stats{display:flex;gap:18px;flex-wrap:wrap;margin-top:8px;font-size:13px;color:#c9c4d0}
+.insta-bio{font-size:13px;color:#d9d5df;margin-top:5px}
+.insta-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+.insta-card{position:relative;aspect-ratio:9/16;background:#24212a;border:0;padding:0;overflow:hidden;border-radius:10px;cursor:pointer;color:white}
+.insta-card video{width:100%;height:100%;object-fit:cover;display:block}
+.insta-card:after{content:'▶';position:absolute;right:12px;top:12px;text-shadow:0 1px 6px #000;font-size:20px}
+.insta-card:hover{transform:translateY(-3px);transition:transform .2s}
+.insta-overlay{position:absolute;inset:auto 0 0;padding:28px 9px 10px;background:linear-gradient(transparent,#000a);font-size:12px;text-align:left}
+.insta-modal{display:none;position:fixed;inset:0;z-index:99999;background:#000e;align-items:center;justify-content:center;padding:15px}
+.insta-modal-inner{position:relative;width:min(440px,95vw);height:min(85vh,780px);background:#111;border-radius:14px;overflow:hidden}
+.insta-modal video{width:100%;height:100%;object-fit:contain;background:#000}
+.insta-close{position:absolute;z-index:2;right:10px;top:10px;border:0;border-radius:50%;width:38px;height:38px;background:#222;color:#fff;font-size:25px;cursor:pointer}
+.insta-count{color:#c7c1cf;text-align:center;font-size:13px;margin:16px 0 0}
+@media(max-width:800px){.insta-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:7px}.insta-section{padding:48px 4%}}
+@media(max-width:480px){.insta-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.insta-profile{padding:12px}.insta-avatar{width:60px;height:60px;flex-basis:60px}}
+</style>
+<section id="instagram-reels" class="insta-section">
+  <div class="insta-wrap">
+    <h2 class="insta-heading">Instagram Reels</h2>
+    <div class="insta-profile">
+      <div class="insta-avatar"><span> S </span></div>
+      <div><div class="insta-user">@shreelekh.io</div>
+        <div class="insta-stats"><span><strong id="insta-post-count">56</strong> reels</span><span>Video collection</span></div>
+        <div class="insta-bio">A collection of my Instagram videos ✨</div>
+      </div>
+    </div>
+    <div class="insta-grid" id="insta-grid"></div>
+    <p class="insta-count">Tap any reel to watch it.</p>
+  </div>
+</section>
+<div class="insta-modal" id="insta-modal" role="dialog" aria-modal="true" aria-label="Play Instagram reel">
+  <div class="insta-modal-inner"><button class="insta-close" id="insta-close" aria-label="Close video">×</button><video id="insta-player" controls playsinline></video></div>
+</div>
+<script>
+(() => {
+ const reels = ["assets/insta-reels/shreelekh.io_1790166044_3992524532072723301_74175424728.mp4", "assets/insta-reels/shreelekh.io_1790171216_3992567879843777750_74175424728.mp4", "assets/insta-reels/shreelekh.io_1790172350_3992577416525043806_74175424728.mp4", "assets/insta-reels/shreelekh.io_1790260396_3993315767750242705_74175424728.mp4", "assets/insta-reels/shreelekh.io_1790261023_3993321173335903951_74175424728.mp4", "assets/insta-reels/shreelekh.io_1790261543_3993325522552202913_74175424728.mp4", "assets/insta-reels/shreelekh.io_1790262527_3993333849839515986_74175424728.mp4", "assets/insta-reels/shreelekh.io_1790339377_3993977414348367007_74175424728.mp4", "assets/insta-reels/shreelekh.io_1790354383_3994101508150399092_74175424728.mp4", "assets/insta-reels/shreelekh.io_1790423665_3994685432611452172_74175424728.mp4", "assets/insta-reels/shreelekh.io_1790423968_3994688017124754152_74175424728.mp4", "assets/insta-reels/shreelekh.io_1790424200_3994690039895003913_74175424728.mp4", "assets/insta-reels/shreelekh.io_1790706005_3997053927249854374_74175424728.mp4", "assets/insta-reels/shreelekh.io_1790929525_3998928957070815195_74175424728.mp4", "assets/insta-reels/shreelekh.io_1790931814_3998948248814068277_74175424728.mp4", "assets/insta-reels/shreelekh.io_1790965569_3999062226037670040_74175424728.mp4", "assets/insta-reels/shreelekh.io_1791223898_4001398347713615177_74175424728.mp4", "assets/insta-reels/shreelekh.io_1791385319_4002752432847977096_74175424728.mp4", "assets/insta-reels/shreelekh.io_1791385704_4002755626189536372_74175424728.mp4", "assets/insta-reels/shreelekh.io_1791513968_4003831265550294740_74175424728.mp4", "assets/insta-reels/shreelekh.io_1791550153_4004135089925163297_74175424728.mp4", "assets/insta-reels/shreelekh.io_1791550831_4004140870850488588_74175424728.mp4", "assets/insta-reels/shreelekh.io_1791914581_4007192237665014276_74175424728.mp4", "assets/insta-reels/shreelekh.io_1777148008_3883321215372770462_74175424728.mp4", "assets/insta-reels/shreelekh.io_1777148209_3883322914728596837_74175424728.mp4", "assets/insta-reels/shreelekh.io_1788526207_3978768200176775221_74175424728.mp4", "assets/insta-reels/shreelekh.io_1788539013_3978875832468491008_74175424728.mp4", "assets/insta-reels/shreelekh.io_1788603160_3979414083030501517_74175424728.mp4", "assets/insta-reels/shreelekh.io_1788603187_3979414303558764013_74175424728.mp4", "assets/insta-reels/shreelekh.io_1788603198_3979414373326697549_74175424728.mp4", "assets/insta-reels/shreelekh.io_1788603328_3979415470565119749_74175424728.mp4", "assets/insta-reels/shreelekh.io_1788603484_3979416788474176829_74175424728.mp4", "assets/insta-reels/shreelekh.io_1789489886_3986852392681981899_74175424728.mp4", "assets/insta-reels/shreelekh.io_1789586288_3987660399694208086_74175424728.mp4", "assets/insta-reels/shreelekh.io_1789587292_3987667527746138890_74175424728.mp4", "assets/insta-reels/shreelekh.io_1789589978_3987692056952543868_74175424728.mp4", "assets/insta-reels/shreelekh.io_1789590057_3987692752904944036_74175424728.mp4", "assets/insta-reels/shreelekh.io_1789675412_3988408671597695552_74175424728.mp4", "assets/insta-reels/shreelekh.io_1789675572_3988410038529747852_74175424728.mp4", "assets/insta-reels/shreelekh.io_1789738190_3988935215748437497_74175424728.mp4", "assets/insta-reels/shreelekh.io_1789738768_3988940173205851177_74175424728.mp4", "assets/insta-reels/shreelekh.io_1789739501_3988946373662345687_74175424728.mp4", "assets/insta-reels/shreelekh.io_1789850581_3989878131407950291_74175424728.mp4", "assets/insta-reels/shreelekh.io_1789850643_3989878619331201611_74175424728.mp4", "assets/insta-reels/shreelekh.io_1789852394_3989892669024830971_74175424728.mp4", "assets/insta-reels/shreelekh.io_1789891289_3990219334666979403_74175424728.mp4", "assets/insta-reels/shreelekh.io_1789892033_3990225139508443276_74175424728.mp4", "assets/insta-reels/shreelekh.io_1789893186_3990235587887699500_74175424728.mp4", "assets/insta-reels/shreelekh.io_1789893297_3990236045848077276_74175424728.mp4", "assets/insta-reels/shreelekh.io_1789909009_3990367658158067937_74175424728.mp4", "assets/insta-reels/shreelekh.io_1789917420_3990438831126681006_74175424728.mp4", "assets/insta-reels/shreelekh.io_1789917772_3990441804216951924_74175424728.mp4", "assets/insta-reels/shreelekh.io_1789918178_3990444056457558457_74175424728.mp4", "assets/insta-reels/shreelekh.io_1789923643_3990490974898435664_74175424728.mp4", "assets/insta-reels/shreelekh.io_1789923863_3990492886913827924_74175424728.mp4", "assets/insta-reels/shreelekh.io_1789923865_3990492945911018916_74175424728.mp4"];
+ const grid = document.getElementById('insta-grid');
+ const modal = document.getElementById('insta-modal');
+ const player = document.getElementById('insta-player');
+ document.getElementById('insta-post-count').textContent = reels.length;
+ reels.forEach((src, i) => {
+   const card = document.createElement('button');
+   card.className = 'insta-card';
+   card.type = 'button';
+   card.setAttribute('aria-label', 'Play reel ' + (i + 1));
+   const video = document.createElement('video');
+   video.src = src; video.muted = true; video.playsInline = true; video.preload = 'metadata';
+   video.addEventListener('loadedmetadata', () => { try { video.currentTime = Math.min(1, video.duration || 0); } catch(e) {} }, {once:true});
+   const label = document.createElement('span'); label.className='insta-overlay'; label.textContent='▶ Reel ' + (i + 1);
+   card.append(video, label);
+   card.addEventListener('click', () => { player.src = src; modal.style.display='flex'; player.play().catch(()=>{}); });
+   grid.appendChild(card);
+ });
+ function closeReel(){ player.pause(); player.removeAttribute('src'); player.load(); modal.style.display='none'; }
+ document.getElementById('insta-close').addEventListener('click', closeReel);
+ modal.addEventListener('click', e => { if(e.target === modal) closeReel(); });
+ document.addEventListener('keydown', e => { if(e.key === 'Escape') closeReel(); });
+})();
+</script>
+
+<section id="contact" class="contact-section">
+      <h2>Contact</h2>
+      <p>Have a question or want to collaborate? Feel free to reach out!</p>
+      <form id="contactForm" class="contact-form">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+        <div class="error-message" id="nameError"></div>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        <div class="error-message" id="emailError"></div>
+
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" required></textarea>
+        <div class="error-message" id="messageError"></div>
+
+        <button type="submit">Send Message</button>
+      </form>
+      <ul style="list-style: none; padding: 0; margin-top: 20px; text-align: center;">
+        <li>
+          <i class="fas fa-envelope"></i>
+          Email: <a href="mailto:shreelekhingle5@gmail.com">shreelekhingle5@gmail.com</a>
+        </li>
+        <li>
+          <i class="fab fa-github"></i>
+          GitHub: <a href="https://github.com/shreelekh" target="_blank">shreelekh</a>
+        </li>
+        <li>
+          <i class="fab fa-instagram"></i>
+          Instagram: <a href="https://www.instagram.com/its__shreelekh/?__d=11" target="_blank">shreelekh</a>
+        </li>
+      </ul>
+    </section>
+  </main>
+
+  <button id="scroll-to-top" aria-label="Scroll to top">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+
+  <footer>
+    <p>&copy; <span id="current-year"></span> Shreelekh Ingle. All rights reserved.</p>
+  </footer>
+
+  <!-- Project Modal Structure -->
+  <div id="projectModal" class="modal">
+    <div class="modal-content">
+      <span class="close-button">&times;</span>
+      <h3 id="modal-project-title"></h3>
+      <p id="modal-project-description"></p>
+      <div class="modal-links">
+        <a id="modal-project-view" href="#" target="_blank" style="display: none;">View Project</a>
+        <a id="modal-project-code" href="#" target="_blank" style="display: none;">View Code</a>
+        <a id="modal-project-play" href="#" target="_blank" style="display: none;">Play Game</a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+  // Dark Mode Toggle
+  const darkModeToggle = document.getElementById('darkModeToggle');
+  const body = document.body;
+
+  darkModeToggle.addEventListener('click', () => {
+    body.classList.toggle('light-mode');
+    const isLightMode = body.classList.contains('light-mode');
+    darkModeToggle.innerHTML = isLightMode ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
+    localStorage.setItem('theme', isLightMode ? 'light' : 'dark');
+  });
+
+  // Check for saved theme preference
+  const savedTheme = localStorage.getItem('theme');
+  if (savedTheme === 'light') {
+    body.classList.add('light-mode');
+    darkModeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+  } else {
+    darkModeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+  }
+
+  // Tab switcher for Games Section
+  const tabs = document.querySelectorAll('.game-tab');
+  const panels = document.querySelectorAll('.game-content');
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      tabs.forEach(t => {
+        t.classList.remove('active');
+        t.setAttribute('aria-selected', 'false');
+      });
+      panels.forEach(p => p.classList.remove('active'));
+
+      tab.classList.add('active');
+      tab.setAttribute('aria-selected', 'true');
+      const panel = document.getElementById(tab.getAttribute('aria-controls'));
+      panel.classList.add('active');
+      panel.focus();
+    });
+  });
+
+  // === Snake Game ===
+  const canvas = document.getElementById('snakeCanvas');
+  const ctx = canvas.getContext('2d');
+  const box = 20;
+  let snake = [{ x: 9 * box, y: 9 * box }];
+  let direction = 'RIGHT';
+  let food = randomFoodPosition();
+  let gameInterval; // Declare gameInterval globally
+
+  document.getElementById('snakeReset').addEventListener('click', resetSnakeGame);
+  document.addEventListener('keydown', e => {
+    if(document.activeElement.closest('#snake-game')) {
+      if (e.key === 'ArrowLeft' && direction !== 'RIGHT') direction = 'LEFT';
+      else if (e.key === 'ArrowUp' && direction !== 'DOWN') direction = 'UP';
+      else if (e.key === 'ArrowRight' && direction !== 'LEFT') direction = 'RIGHT';
+      else if (e.key === 'ArrowDown' && direction !== 'UP') direction = 'DOWN';
+    }
+  });
+
+  function randomFoodPosition() {
+    return {
+      x: Math.floor(Math.random() * 20) * box,
+      y: Math.floor(Math.random() * 20) * box
+    };
+  }
+
+  function drawSnake() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    for (let i = 0; i < snake.length; i++) {
+      ctx.fillStyle = (i === 0) ? '#059669' : '#10b981';
+      ctx.fillRect(snake[i].x, snake[i].y, box, box);
+      ctx.strokeStyle = '#047857';
+      ctx.strokeRect(snake[i].x, snake[i].y, box, box);
+    }
+    ctx.fillStyle = '#ef4444';
+    ctx.fillRect(food.x, food.y, box, box);
+  }
+
+  function moveSnake() {
+    let snakeX = snake[0].x;
+    let snakeY = snake[0].y;
+
+    if (direction === 'LEFT') snakeX -= box;
+    else if (direction === 'UP') snakeY -= box;
+    else if (direction === 'RIGHT') snakeX += box;
+    else if (direction === 'DOWN') snakeY += box;
+
+    if (snakeX === food.x && snakeY === food.y) {
+      food = randomFoodPosition();
+    } else {
+      snake.pop();
+    }
+
+    const newHead = { x: snakeX, y: snakeY };
+
+    if (snakeX < 0 || snakeY < 0 || snakeX >= canvas.width || snakeY >= canvas.height || collision(newHead, snake)) {
+      alert('Game Over! Press Reset to play again.');
+      clearInterval(gameInterval);
+      return;
+    }
+
+    snake.unshift(newHead);
+    drawSnake();
+  }
+
+  function collision(head, array) {
+    return array.some(seg => seg.x === head.x && seg.y === head.y);
+  }
+
+  function resetSnakeGame() {
+    clearInterval(gameInterval); // Clear any existing interval
+    snake = [{ x: 9 * box, y: 9 * box }];
+    direction = 'RIGHT';
+    food = randomFoodPosition();
+    drawSnake();
+    gameInterval = setInterval(moveSnake, 100); // Start new interval
+  }
+
+  // Initial call to start the snake game
+  resetSnakeGame();
+
+  // === Rock Paper Scissors ===
+  const rpsButtons = document.querySelectorAll('#rps-game button[data-choice]');
+  const rpsResult = document.getElementById('rpsResult');
+
+  rpsButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      const userChoice = button.dataset.choice;
+      const choices = ['rock', 'paper', 'scissors'];
+      const compChoice = choices[Math.floor(Math.random() * choices.length)];
+      let result = '';
+      if (userChoice === compChoice) {
+        result = "It's a draw!";
+      } else if (
+        (userChoice === 'rock' && compChoice === 'scissors') ||
+        (userChoice === 'scissors' && compChoice === 'paper') ||
+        (userChoice === 'paper' && compChoice === 'rock')
+      ) {
+        result = "You win!";
+      } else {
+        result = "You lose!";
+      }
+      rpsResult.textContent = `You chose ${userChoice}, Computer chose ${compChoice}. ${result}`;
+    });
+  });
+
+  // === Memory Game ===
+  const memoryBoard = document.getElementById('memoryBoard');
+  const memoryReset = document.getElementById('memoryReset');
+  const cardValues = ['A','A','B','B','C','C','D','D','E','E','F','F','G','G','H','H'];
+  let cards = [];
+  let firstCard = null;
+  let secondCard = null;
+  let lockBoard = false;
+
+  memoryReset.addEventListener('click', () => {
+    createBoard();
+  });
+
+  function shuffle(arr) {
+    for(let i = arr.length - 1; i > 0; i--) {
+      let j = Math.floor(Math.random() * (i + 1));
+      [arr[i], arr[j]] = [arr[j], arr[i]];
+    }
+    return arr;
+  }
+
+  function createBoard() {
+    memoryBoard.innerHTML = '';
+    cards = [];
+    firstCard = null;
+    secondCard = null;
+    lockBoard = false;
+    const shuffledCards = shuffle([...cardValues]);
+    shuffledCards.forEach(value => {
+      const card = document.createElement('div');
+      card.classList.add('card');
+      card.dataset.value = value;
+      card.addEventListener('click', flipCard);
+      memoryBoard.appendChild(card);
+      cards.push(card);
+    });
+  }
+
+  function flipCard() {
+    if(lockBoard) return;
+    if(this === firstCard) return;
+    this.textContent = this.dataset.value;
+    this.classList.add('flipped');
+    if(!firstCard) {
+      firstCard = this;
+      return;
+    }
+    secondCard = this;
+    lockBoard = true;
+    if(firstCard.dataset.value === secondCard.dataset.value) {
+      // Cards match
+      // Remove event listeners to prevent further clicks on matched cards
+      firstCard.removeEventListener('click', flipCard);
+      secondCard.removeEventListener('click', flipCard);
+      resetBoard();
+    } else {
+      // Cards don't match, flip them back after a delay
+      setTimeout(() => {
+        firstCard.textContent = '';
+        secondCard.textContent = '';
+        firstCard.classList.remove('flipped');
+        secondCard.classList.remove('flipped');
+        resetBoard();
+      }, 1000);
+    }
+  }
+
+  function resetBoard() {
+    [firstCard, secondCard] = [null, null];
+    lockBoard = false;
+  }
+
+  // Initial call to create the memory board
+  createBoard();
+
+  // === Guess the Number Game ===
+  const guessInput = document.getElementById('guessInput');
+  const submitGuessBtn = document.getElementById('submitGuess');
+  const guessResult = document.getElementById('guessResult');
+  const resetGuessGameBtn = document.getElementById('resetGuessGame');
+
+  let randomNumber;
+  let attempts;
+
+  function startGuessGame() {
+    randomNumber = Math.floor(Math.random() * 100) + 1;
+    attempts = 0;
+    guessResult.textContent = '';
+    guessInput.value = '';
+    guessInput.disabled = false;
+    submitGuessBtn.disabled = false;
+    resetGuessGameBtn.style.display = 'none';
+  }
+
+  submitGuessBtn.addEventListener('click', () => {
+    const userGuess = parseInt(guessInput.value);
+    if (isNaN(userGuess) || userGuess < 1 || userGuess > 100) {
+      guessResult.textContent = 'Please enter a valid number between 1 and 100.';
+      return;
+    }
+
+    attempts++;
+    if (userGuess === randomNumber) {
+      guessResult.textContent = `Congratulations! You guessed the number ${randomNumber} in ${attempts} attempts.`;
+      guessInput.disabled = true;
+      submitGuessBtn.disabled = true;
+      resetGuessGameBtn.style.display = 'block';
+    } else if (userGuess < randomNumber) {
+      guessResult.textContent = 'Too low! Try again.';
+    } else {
+      guessResult.textContent = 'Too high! Try again.';
+    }
+  });
+
+  resetGuessGameBtn.addEventListener('click', startGuessGame);
+
+  // Initial call for Guess the Number game
+  startGuessGame();
+
+  // === Tic-Tac-Toe Game ===
+  const ticTacToeBoard = document.getElementById('ticTacToeBoard');
+  const ticTacToeCells = document.querySelectorAll('#ticTacToeBoard .cell');
+  const ticTacToeResult = document.getElementById('ticTacToeResult');
+  const resetTicTacToeGameBtn = document.getElementById('resetTicTacToeGame');
+
+  let board;
+  let currentPlayer;
+  let isGameActive;
+
+  const winningConditions = [
+    [0, 1, 2], [3, 4, 5], [6, 7, 8], // Rows
+    [0, 3, 6], [1, 4, 7], [2, 5, 8], // Columns
+    [0, 4, 8], [2, 4, 6]             // Diagonals
+  ];
+
+  function initializeTicTacToeGame() {
+    board = ['', '', '', '', '', '', '', '', ''];
+    currentPlayer = 'X';
+    isGameActive = true;
+    ticTacToeResult.textContent = `Player ${currentPlayer}'s turn`;
+    ticTacToeCells.forEach(cell => {
+      cell.textContent = '';
+      cell.classList.remove('x', 'o');
+      cell.addEventListener('click', handleCellClick, { once: true });
+    });
+  }
+
+  function handleCellClick(event) {
+    const clickedCell = event.target;
+    const clickedCellIndex = parseInt(clickedCell.dataset.cellIndex);
+
+    if (board[clickedCellIndex] !== '' || !isGameActive) {
+      return;
+    }
+
+    board[clickedCellIndex] = currentPlayer;
+    clickedCell.textContent = currentPlayer;
+    clickedCell.classList.add(currentPlayer.toLowerCase());
+
+    checkResult();
+  }
+
+  function checkResult() {
+    let roundWon = false;
+    for (let i = 0; i < winningConditions.length; i++) {
+      const winCondition = winningConditions[i];
+      let a = board[winCondition[0]];
+      let b = board[winCondition[1]];
+      let c = board[winCondition[2]];
+
+      if (a === '' || b === '' || c === '') {
+        continue;
+      }
+      if (a === b && b === c) {
+        roundWon = true;
+        break;
+      }
+    }
+
+    if (roundWon) {
+      ticTacToeResult.textContent = `Player ${currentPlayer} has won!`;
+      isGameActive = false;
+      ticTacToeCells.forEach(cell => cell.removeEventListener('click', handleCellClick)); // Disable further clicks
+      return;
+    }
+
+    let roundDraw = !board.includes('');
+    if (roundDraw) {
+      ticTacToeResult.textContent = 'It\'s a draw!';
+      isGameActive = false;
+      return;
+    }
+
+    currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
+    ticTacToeResult.textContent = `Player ${currentPlayer}'s turn`;
+  }
+
+  resetTicTacToeGameBtn.addEventListener('click', initializeTicTacToeGame);
+
+  // Initial call for Tic-Tac-Toe game
+  initializeTicTacToeGame();
+
+  // === Coin Flip Game ===
+  const flipCoinBtn = document.getElementById('flipCoinBtn');
+  const coinElement = document.getElementById('coin');
+  const coinFlipResult = document.getElementById('coinFlipResult');
+  const coinWinsSpan = document.getElementById('coinWins');
+  const coinLossesSpan = document.getElementById('coinLosses');
+  const resetCoinFlipGameBtn = document.getElementById('resetCoinFlipGame');
+
+  let coinWins = 0;
+  let coinLosses = 0;
+
+  function updateCoinScore() {
+    coinWinsSpan.textContent = coinWins;
+    coinLossesSpan.textContent = coinLosses;
+  }
+
+  flipCoinBtn.addEventListener('click', () => {
+    coinElement.classList.add('flipping');
+    coinFlipResult.textContent = ''; // Clear previous result
+
+    setTimeout(() => {
+      const result = Math.random() < 0.5 ? 'Heads' : 'Tails';
+      coinElement.textContent = result;
+      coinFlipResult.textContent = `It's ${result}!`;
+
+      if (result === 'Heads') { // Assuming 'Heads' is a win, adjust as needed
+        coinWins++;
+      } else {
+        coinLosses++;
+      }
+      updateCoinScore();
+      coinElement.classList.remove('flipping');
+    }, 500); // Match animation duration
+  });
+
+  resetCoinFlipGameBtn.addEventListener('click', () => {
+    coinWins = 0;
+    coinLosses = 0;
+    updateCoinScore();
+    coinFlipResult.textContent = '';
+    coinElement.textContent = '';
+  });
+
+  updateCoinScore(); // Initial score display
+
+
+  // Project Filtering
+  const filterButtons = document.querySelectorAll('.project-filters .filter-btn');
+  const projectItems = document.querySelectorAll('.project-list .project-item');
+
+  filterButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      filterButtons.forEach(btn => btn.classList.remove('active'));
+      button.classList.add('active');
+
+      const filter = button.dataset.filter;
+
+      projectItems.forEach(item => {
+        if (filter === 'all' || item.dataset.category === filter) {
+          item.classList.add('show');
+        } else {
+          item.classList.remove('show');
+        }
+      });
+    });
+  });
+
+  // Testimonial Carousel
+  const testimonialWrapper = document.querySelector('.testimonial-wrapper');
+  const testimonialSlides = document.querySelectorAll('.testimonial-slide');
+  const prevBtn = document.querySelector('.prev-btn');
+  const nextBtn = document.querySelector('.next-btn');
+  let currentIndex = 0;
+
+  function updateCarousel() {
+    const slideWidth = testimonialSlides[0].clientWidth;
+    testimonialWrapper.style.transform = `translateX(${-currentIndex * slideWidth}px)`;
+  }
+
+  prevBtn.addEventListener('click', () => {
+    currentIndex = (currentIndex > 0) ? currentIndex - 1 : testimonialSlides.length - 1;
+    updateCarousel();
+  });
+
+  nextBtn.addEventListener('click', () => {
+    currentIndex = (currentIndex < testimonialSlides.length - 1) ? currentIndex + 1 : 0;
+    updateCarousel();
+  });
+
+  // Initialize carousel on load and resize
+  window.addEventListener('load', updateCarousel);
+  window.addEventListener('resize', updateCarousel);
+
+  // Skill Bar Animation
+  const skillBars = document.querySelectorAll('.skill-bar');
+
+  const animateSkillBars = () => {
+    skillBars.forEach(bar => {
+      const level = bar.dataset.level;
+      bar.style.width = level + '%';
+    });
+  };
+
+  // Trigger animation when skills section is in view
+  const skillsSection = document.getElementById('skills');
+  const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        animateSkillBars();
+        observer.unobserve(entry.target); // Stop observing once animated
+      }
+    });
+  }, { threshold: 0.5 }); // Trigger when 50% of the section is visible
+
+  observer.observe(skillsSection);
+
+  // Contact Form Validation
+  const contactForm = document.getElementById('contactForm');
+  const nameInput = document.getElementById('name');
+  const emailInput = document.getElementById('email');
+  const messageInput = document.getElementById('message');
+  const nameError = document.getElementById('nameError');
+  const emailError = document.getElementById('emailError');
+  const messageError = document.getElementById('messageError');
+
+  contactForm.addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent default form submission
+
+    let isValid = true;
+
+    // Name validation
+    if (nameInput.value.trim() === '') {
+      nameError.textContent = 'Name is required.';
+      isValid = false;
+    } else {
+      nameError.textContent = '';
+    }
+
+    // Email validation
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (emailInput.value.trim() === '') {
+      emailError.textContent = 'Email is required.';
+      isValid = false;
+    } else if (!emailPattern.test(emailInput.value.trim())) {
+      emailError.textContent = 'Please enter a valid email address.';
+      isValid = false;
+    } else {
+      emailError.textContent = '';
+    }
+
+    // Message validation
+    if (messageInput.value.trim() === '') {
+      messageError.textContent = 'Message is required.';
+      isValid = false;
+    } else {
+      messageError.textContent = '';
+    }
+
+    if (isValid) {
+      // Open the visitor's email app with the message ready to send.
+      // This works without a backend; the visitor must press Send in their email app.
+      const recipient = 'shreelekhingle5@gmail.com';
+      const subject = encodeURIComponent('Portfolio contact from ' + nameInput.value.trim());
+      const bodyText = encodeURIComponent(
+        'Name: ' + nameInput.value.trim() + '\n' +
+        'Reply email: ' + emailInput.value.trim() + '\n\n' +
+        messageInput.value.trim()
+      );
+      window.location.href = 'mailto:' + recipient + '?subject=' + subject + '&body=' + bodyText;
+    }
+  });
+
+  // Scroll to Top Button
+  const scrollToTopBtn = document.getElementById('scroll-to-top');
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 300) { // Show button after scrolling 300px
+      scrollToTopBtn.style.display = 'flex';
+    } else {
+      scrollToTopBtn.style.display = 'none';
+    }
+  });
+
+  scrollToTopBtn.addEventListener('click', () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth' // Smooth scroll to top
+    });
+  });
+
+  // Dynamic Year in Footer
+  document.getElementById('current-year').textContent = new Date().getFullYear();
+
+  // Project Modals
+  const projectModal = document.getElementById('projectModal');
+  const closeButton = document.querySelector('.close-button');
+  const modalProjectTitle = document.getElementById('modal-project-title');
+  const modalProjectDescription = document.getElementById('modal-project-description');
+  const modalProjectView = document.getElementById('modal-project-view');
+  const modalProjectCode = document.getElementById('modal-project-code');
+  const modalProjectPlay = document.getElementById('modal-project-play');
+
+  const projectDetails = {
+    'chat-app': {
+      title: 'Secure Chat Application',
+      description: 'A real-time chat application built with Node.js, Express, and Firebase for secure messaging. Features include user authentication, private messaging, and group chats. This project demonstrates my ability to work with backend technologies and real-time databases.',
+      viewLink: 'https://example.com/chat-app', // Replace with actual link
+      codeLink: 'https://github.com/shreelekh/chat-app', // Replace with actual link
+      playLink: ''
+    },
+    'image-recognition': {
+      title: 'Simple Image Recognition Model',
+      description: 'An introductory machine learning project using Python and TensorFlow to classify images. I trained a convolutional neural network (CNN) on a custom dataset to recognize specific objects. This project helped me understand the basics of deep learning and model training.',
+      viewLink: 'https://example.com/image-recognition', // Replace with actual link
+      codeLink: 'https://github.com/shreelekh/image-recognition', // Replace with actual link
+      playLink: ''
+    },
+    'weather-dashboard': {
+      title: 'Weather Dashboard',
+      description: 'A dynamic web application that fetches and displays current weather data for any city using a public API (e.g., OpenWeatherMap API). It features a clean user interface and provides real-time updates. Technologies used: HTML, CSS, JavaScript, and Fetch API.',
+      viewLink: 'https://example.com/weather-dashboard', // Replace with actual link
+      codeLink: 'https://github.com/shreelekh/weather-dashboard', // Replace with actual link
+      playLink: ''
+    },
+    'snake-game': {
+      title: 'Snake Game (JavaScript)',
+      description: 'A classic arcade Snake game implemented purely with HTML Canvas and JavaScript. Players control a snake to eat food and grow longer, avoiding collisions with walls or its own body. It showcases my understanding of game logic and canvas manipulation.',
+      viewLink: '',
+      codeLink: 'https://github.com/shreelekh/snake-game', // Replace with actual link
+      playLink: '#games' // Link to the games section
+    },
+    'memory-game': {
+      title: 'Memory Game (JavaScript)',
+      description: 'A card-matching memory game designed to test concentration and recall. Players flip cards to find matching pairs. Built with HTML, CSS, and JavaScript, this project demonstrates DOM manipulation and basic game state management.',
+      viewLink: '',
+      codeLink: 'https://github.com/shreelekh/memory-game', // Replace with actual link
+      playLink: '#games' // Link to the games section
+    },
+    'guess-the-number-game': {
+      title: 'Guess the Number Game (JavaScript)',
+      description: 'A simple interactive game where the user tries to guess a randomly generated number within a certain range. Provides feedback (too high/too low) and tracks attempts. Demonstrates basic input handling and conditional logic.',
+      viewLink: '',
+      codeLink: 'https://github.com/shreelekh/guess-the-number-game', // Replace with actual link
+      playLink: '#games' // Link to the games section
+    },
+    'tic-tac-toe-game': {
+      title: 'Tic-Tac-Toe Game (JavaScript)',
+      description: 'A classic two-player Tic-Tac-Toe game implemented using HTML, CSS, and JavaScript. Features include turn management, win condition checking, and a reset option. Showcases DOM manipulation and game state management.',
+      viewLink: '',
+      codeLink: 'https://github.com/shreelekh/tic-tac-toe-game', // Replace with actual link
+      playLink: '#games' // Link to the games section
+    },
+    'coin-flip-game': {
+      title: 'Coin Flip Game (JavaScript)',
+      description: 'A simple interactive game where you flip a coin and see if it lands on Heads or Tails. Keeps track of your wins and losses. Demonstrates basic random number generation and DOM manipulation.',
+      viewLink: '',
+      codeLink: 'https://github.com/shreelekh/coin-flip-game', // Replace with actual link
+      playLink: '#games' // Link to the games section
+    },
+    'portfolio-website': {
+      title: 'Personal Portfolio Website',
+      description: 'This very website! Designed and developed from scratch to showcase my skills, projects, and achievements as a developer. It features responsive design, interactive elements, and a clean, modern aesthetic. Built with HTML, CSS, and JavaScript.',
+      viewLink: '#', // Link to current page
+      codeLink: 'https://github.com/shreelekh/portfolio', // Replace with actual link
+      playLink: ''
+    }
+  };
+
+  projectItems.forEach(item => {
+    item.addEventListener('click', function() {
+      const projectId = this.dataset.projectId;
+      const details = projectDetails[projectId];
+
+      if (details) {
+        modalProjectTitle.textContent = details.title;
+        modalProjectDescription.textContent = details.description;
+
+        if (details.viewLink) {
+          modalProjectView.href = details.viewLink;
+          modalProjectView.style.display = 'inline-block';
+        } else {
+          modalProjectView.style.display = 'none';
+        }
+
+        if (details.codeLink) {
+          modalProjectCode.href = details.codeLink;
+          modalProjectCode.style.display = 'inline-block';
+        } else {
+          modalProjectCode.style.display = 'none';
+        }
+
+        if (details.playLink) {
+          modalProjectPlay.href = details.playLink;
+          modalProjectPlay.style.display = 'inline-block';
+        } else {
+          modalProjectPlay.style.display = 'none';
+        }
+
+        projectModal.style.display = 'flex'; // Use flex to center
+      }
+    });
+  });
+
+  closeButton.addEventListener('click', () => {
+    projectModal.style.display = 'none';
+  });
+
+  window.addEventListener('click', (event) => {
+    if (event.target === projectModal) {
+      projectModal.style.display = 'none';
+    }
+  });
+  </script>
+</body>
+</html>
